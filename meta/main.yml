@@ -1,0 +1,14 @@
+galaxy_info:
+  author: apham0001
+  description: google-fluentd
+  company: Webedia
+  license: license (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+  - name: Debian
+    versions:
+      - jessie
+      - buster
+  galaxy_tags:
+    - google
+    - google-fluentd

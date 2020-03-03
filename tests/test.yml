@@ -1,0 +1,13 @@
+---
+# install google-fluentd
+  - name: "install google-fluentd"
+  - hosts: defaults
+  - become: true
+
+  vars:
+     google_fluentd_php:
+       - website1
+       - website2
+
+  roles:
+    - ansible-role-google-fluentd

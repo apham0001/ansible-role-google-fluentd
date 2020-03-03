@@ -1,0 +1,17 @@
+---
+- name: Configure apache.
+  copy:
+    src: "apache.conf"
+    dest: "{{ google_fluentd_conf_dir }}/apache.conf"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+
+- name: Configure PHP.
+  template:
+    src: "php.conf.j2"
+    dest: "{{ google_fluentd_conf_dir }}/php.conf"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  with_items: "{{ google_fluentd_php }}"
