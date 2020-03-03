@@ -1,6 +1,7 @@
 galaxy_info:
   author: apham0001
-  description: google-fluentd
+  role_name: google_fluentd
+  description: install and configure google-fluentd
   company: Webedia
   license: license (BSD, MIT)"
   min_ansible_version: 2.9
@@ -11,4 +12,4 @@ galaxy_info:
       - buster
   galaxy_tags:
     - google
-    - google-fluentd
+    - fluentd

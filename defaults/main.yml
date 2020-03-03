@@ -1,3 +1,4 @@
 ---
 google_fluentd_dir: "/etc/google-fluentd"
 google_fluentd_conf_dir: "{{ google_fluentd_dir }}/config.d"
+google_fluentd_binary: /usr/sbin/google-fluentd

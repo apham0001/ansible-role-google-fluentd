@@ -4,10 +4,10 @@
     path: "{{ stackdriver_plugins_dir }}/{{  google_auth_name }}"
   register: google_auth
 
-- name: Stat Stackdriver binary.
+- name: Stat google-fluentd binary.
   stat:
-    path: "{{ stackdriver_binary }}"
-  register: stackdriver_binary_file
+    path: "{{ google_fluentd_binary }}"
+  register: google_fluentd_binary_file
 
 - name: Create Google auth dir.
   file:
@@ -30,11 +30,13 @@
     url: https://dl.google.com/cloudagents/install-logging-agent.sh
     dest: /tmp/install-logging-agent.sh
     mode: '0755'
+  when: not google_fluentd_binary_file.stat.exists
 
 - name: install logging agent
   command: ./install-logging-agent.sh
   args:
     chdir: /tmp
+  when: not google_fluentd_binary_file.stat.exists
 
 - name: configure applications.
   include_tasks: configure.yml
