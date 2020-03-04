@@ -1,4 +1,9 @@
 ---
+
+google_auth_dir: "/etc/google/auth"
+google_auth_name: "application_default_credentials.json"
+google_auth_source: "credentials/application_default_credentials.json"
+
 google_fluentd_dir: "/etc/google-fluentd"
 google_fluentd_conf_dir: "{{ google_fluentd_dir }}/config.d"
 google_fluentd_binary: /usr/sbin/google-fluentd

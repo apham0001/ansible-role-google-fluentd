@@ -1,7 +1,7 @@
 ---
 - name: Stat Google credentials file.
   stat:
-    path: "{{ stackdriver_plugins_dir }}/{{  google_auth_name }}"
+    path: "{{ google_auth_dir }}/{{  google_auth_name }}"
   register: google_auth
 
 - name: Stat google-fluentd binary.
@@ -14,7 +14,7 @@
     path: "{{ google_auth_dir }}"
     state: directory
     mode: '0755'
-  when: google_auth.stat.exists
+  when: not google_auth.stat.exists
 
 - name: Copy Google credentials.
   copy:
@@ -23,7 +23,7 @@
     owner: root
     group: root
     mode: '0400'
-  when: google_auth.stat.exists
+  when: not google_auth.stat.exists
 
 - name: download logging agent
   get_url:
